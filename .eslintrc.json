@@ -1,16 +1,22 @@
 {
-	"env": {
-		"browser": true,
-		"es6": true,
-		"node": true
-	},
-	"extends": ["next/core-web-vitals", "airbnb"],
-	"rules": {
-		"arrow-body-style": "off",
-		"eol-last": "off",
-		"react/jsx-filename-extension": "off",
-		"react/function-component-definition": "off",
-		"import/extensions": "off",
-		"import/no-unresolved": "off"
-	}
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["next/core-web-vitals", "airbnb"],
+  "rules": {
+    "arrow-body-style": "off",
+    "eol-last": "off",
+    "react/jsx-filename-extension": "off",
+    "react/function-component-definition": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "linebreak-style": 0,
+    "implicit-arrow-linebreak": "off",
+    "operator-linebreak": "off",
+    "arrow-parens": "off",
+    "no-underscore-dangle": "off",
+    "comma-dangle": "off"
+  }
 }

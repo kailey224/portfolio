@@ -1,8 +1,8 @@
 import React from 'react';
 import { BlogContentsProps } from '@/lib/api/dto';
-import * as S from './style';
 import Inner from '@/components/inner';
 import Item from './item';
+import * as S from './style';
 
 interface ListElementProps {
   postData: BlogContentsProps[];

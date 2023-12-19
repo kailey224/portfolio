@@ -1,9 +1,10 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import axios, { AxiosResponse } from 'axios';
-import BLOG_CONTENTS from '@/lib/api/url';
+import { BLOG_CONTENTS, getPostData } from '@/lib/api/url';
 
-const getBlogContents = async (): Promise<AxiosResponse> => {
+export const getBlogContents = async (): Promise<AxiosResponse> => {
   return axios.get(BLOG_CONTENTS);
 };
 
-export default getBlogContents;
+export const getBlogContent = async (id: string): Promise<AxiosResponse> => {
+  return axios.get(getPostData(id));
+};

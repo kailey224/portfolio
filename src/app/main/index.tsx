@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useEffect, useState, cache } from 'react';
-import getBlogContents from '@/lib/api/blog';
-import * as S from './style';
+import { getBlogContents } from '@/lib/api/blog';
+import { BlogContentsProps } from '@/lib/api/dto';
 import Visual from '@/components/visual';
 import ListElement from '@/components/listElement';
-import { BlogContentsProps } from '@/lib/api/dto';
+import Wrapper from '@/components/wrapper';
 
 const Main = () => {
   const [postData, setPostData] = useState<BlogContentsProps[]>([]);
@@ -21,10 +21,10 @@ const Main = () => {
   console.log(postData);
 
   return (
-    <S.Wrapper>
+    <Wrapper>
       <Visual />
       <ListElement postData={postData} />
-    </S.Wrapper>
+    </Wrapper>
   );
 };
 
