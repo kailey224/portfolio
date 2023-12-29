@@ -20,14 +20,26 @@ const Post = ({ params: { id } }: PostProps) => {
       setPostData(res.data);
     });
     getPost();
-  }, []);
+  }, [id]);
 
   return (
     <Wrapper>
       <Inner>
-        <S.Test>testtest</S.Test>
-        <S.Test>{postData?.title}</S.Test>
-        <S.Test>{postData?.desc}</S.Test>
+        <S.Title>{postData?.title}</S.Title>
+        <S.Desc>{postData?.desc}</S.Desc>
+        <S.CategoryBox>
+          {postData?.category.map((category: string) => (
+            <S.Category key={category}>{category}</S.Category>
+          ))}
+        </S.CategoryBox>
+      </Inner>
+      <S.Border />
+      <Inner>
+        <S.ImageBox>
+          <S.Image />
+          <S.Image />
+          <S.Image />
+        </S.ImageBox>
       </Inner>
     </Wrapper>
   );

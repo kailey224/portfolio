@@ -7,6 +7,11 @@ const title = {
     line-height: 120%;
     ${weights.medium}
   `,
+  t02: css`
+    font-size: 1.2rem;
+    line-height: 120%;
+    ${weights.extralight}
+  `,
 };
 
 const subtitle = {

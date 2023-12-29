@@ -1,6 +1,6 @@
 import React from 'react';
-import * as S from './style';
 import Inner from '@/components/inner';
+import * as S from './style';
 
 const Visual = () => {
   return (
