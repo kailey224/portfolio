@@ -12,12 +12,6 @@ export const FormBox = styled.form`
   gap: 30px;
 `;
 
-export const InputWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 export const LabelBox = styled.label`
   display: block;
   width: 20%;
@@ -34,4 +28,15 @@ export const InputBox = styled.input`
 export const TextAreaBox = styled.textarea`
   padding: 8px;
   width: 80%;
+`;
+
+export const Button = styled.button`
+  align-self: flex-end;
+  width: 180px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: ${({ theme }) => theme.colors.green};
+  ${({ theme }) => theme.typography.size.title.t01};
+  color: ${({ theme }) => theme.colors.black};
+  cursor: pointer;
 `;

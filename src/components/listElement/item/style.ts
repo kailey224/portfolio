@@ -4,7 +4,7 @@ export const Container = styled.div`
   padding: 26px;
   width: 30.333%;
   height: auto;
-  background-color: ${({ theme }) => theme.colors.green};
+  background-color: #fffffe;
   ${({ theme }) => theme.mediaquery.media.lap} {
     width: 47%;
   }
@@ -41,7 +41,7 @@ export const ImageBox = styled.div`
 export const Image = styled.div`
   width: 100%;
   height: 184px;
-  background-color: ${({ theme }) => theme.colors.darkgreen};
+  background-color: #636166;
 `;
 
 export const CategoryBox = styled.div`
