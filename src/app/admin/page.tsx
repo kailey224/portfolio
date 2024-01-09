@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import useInput from '@/lib/hooks/input/useInput';
 import useInputArray from '@/lib/hooks/input/useInputArray';
 import Wrapper from '@/components/wrapper';
@@ -14,13 +14,6 @@ const Admin = () => {
   const imgInput = useInput();
   const categoryInput = useInputArray();
 
-  const data = {
-    title: titleInput.inputValue,
-    desc: descInput.inputValue,
-    img: imgInput.inputValue,
-    category: categoryInput.inputArrayValue,
-  };
-
   const reset = () => {
     titleInput.reset();
     descInput.reset();
@@ -28,13 +21,25 @@ const Admin = () => {
     categoryInput.reset();
   };
 
-  console.log(data);
+  const onSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const data = {
+      title: titleInput.inputValue,
+      desc: descInput.inputValue,
+      img: imgInput.inputValue,
+      category: categoryInput.inputArrayValue,
+    };
+    alert('success!!');
+    reset();
+    console.log(data);
+  };
 
   return (
     <Wrapper>
       <Inner>
         <S.Title>Admin Page</S.Title>
-        <S.FormBox>
+        <S.FormBox onSubmit={onSubmit}>
           <Input>
             <S.LabelBox htmlFor="title">Title</S.LabelBox>
             <S.InputBox
@@ -84,15 +89,7 @@ const Admin = () => {
               placeholder="Category"
             />
           </Input>
-          <S.Button
-            type="button"
-            onClick={() => {
-              alert('success!!!');
-              reset();
-            }}
-          >
-            Submit
-          </S.Button>
+          <S.Button type="submit">Submit</S.Button>
         </S.FormBox>
       </Inner>
     </Wrapper>
