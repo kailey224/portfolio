@@ -1,5 +1,5 @@
 export interface BlogContentsProps {
-  _id: string;
+  _id?: string;
   title: string;
   desc: string;
   img: string;

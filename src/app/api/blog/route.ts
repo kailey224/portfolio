@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import connect from '@/lib/db';
 import blogSchema from '@/lib/db/schema/blog';
 
@@ -12,4 +12,19 @@ export const GET = async () => {
   }
 };
 
-export const POST = async () => {};
+export const POST = async (request: NextRequest) => {
+  const data = await request.json();
+  try {
+    await connect();
+    await blogSchema.create(data);
+
+    return new NextResponse('post update', {
+      status: 201,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  } catch (error) {
+    return new NextResponse('server error', { status: 500 });
+  }
+};

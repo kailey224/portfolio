@@ -21,7 +21,6 @@ const blogSchema = new Schema(
       required: true,
     },
   },
-  // eslint-disable-next-line comma-dangle
   { timestamps: true }
 );
 

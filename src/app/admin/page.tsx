@@ -1,8 +1,9 @@
 'use client';
 
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, cache } from 'react';
 import useInput from '@/lib/hooks/input/useInput';
 import useInputArray from '@/lib/hooks/input/useInputArray';
+import { postBlogContent } from '@/lib/api/blog';
 import Wrapper from '@/components/wrapper';
 import Inner from '@/components/inner';
 import Input from '@/components/input';
@@ -30,9 +31,16 @@ const Admin = () => {
       img: imgInput.inputValue,
       category: categoryInput.inputArrayValue,
     };
-    alert('success!!');
-    reset();
     console.log(data);
+
+    const postData = cache(async () => {
+      const res = await postBlogContent(data);
+      if (res.data) {
+        alert('success!!');
+        reset();
+      }
+    });
+    postData();
   };
 
   return (
