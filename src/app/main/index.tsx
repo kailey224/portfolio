@@ -6,6 +6,7 @@ import { BlogContentsProps } from '@/lib/api/dto';
 import Visual from '@/components/visual';
 import ListElement from '@/components/listElement';
 import Wrapper from '@/components/wrapper';
+import Inner from '@/components/inner';
 
 const Main = () => {
   const [postData, setPostData] = useState<BlogContentsProps[]>([]);
@@ -23,7 +24,9 @@ const Main = () => {
   return (
     <Wrapper>
       <Visual />
-      <ListElement postData={postData} />
+      <Inner>
+        <ListElement postData={postData} />
+      </Inner>
     </Wrapper>
   );
 };

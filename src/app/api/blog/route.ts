@@ -28,3 +28,29 @@ export const POST = async (request: NextRequest) => {
     return new NextResponse('server error', { status: 500 });
   }
 };
+
+export const PUT = async (request: NextRequest) => {
+  const data = await request.json();
+  try {
+    await connect();
+    await blogSchema.findOneAndReplace(
+      { _id: data.id },
+      {
+        _id: data.newId,
+        title: data.title,
+        desc: data.desc,
+        img: data.img,
+        category: data.category,
+      }
+    );
+
+    return new NextResponse('post update', {
+      status: 201,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  } catch (error) {
+    return new NextResponse('server error', { status: 500 });
+  }
+};

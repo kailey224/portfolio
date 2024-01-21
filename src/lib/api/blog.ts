@@ -15,3 +15,9 @@ export const postBlogContent = async (
 ): Promise<AxiosResponse> => {
   return axios.post(BLOG_CONTENTS, data);
 };
+
+export const updateBlogContent = async (
+  data: BlogContentsProps
+): Promise<AxiosResponse> => {
+  return axios.put(BLOG_CONTENTS, data);
+};

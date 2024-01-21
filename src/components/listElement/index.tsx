@@ -1,22 +1,29 @@
 import React from 'react';
 import { BlogContentsProps } from '@/lib/api/dto';
-import Inner from '@/components/inner';
 import Item from './item';
 import * as S from './style';
 
 interface ListElementProps {
   postData: BlogContentsProps[];
+  isAdmin?: boolean;
+  editItem?: {
+    selecteItem: BlogContentsProps | undefined;
+    onClickSelecteItem: (item: BlogContentsProps) => void;
+  };
 }
 
-const ListElement = ({ postData }: ListElementProps) => {
+const ListElement = ({ postData, isAdmin, editItem }: ListElementProps) => {
   return (
-    <Inner>
-      <S.Container>
-        {postData.map((item: BlogContentsProps) => (
-          <Item key={item._id} item={item} />
-        ))}
-      </S.Container>
-    </Inner>
+    <S.Container isAdmin={isAdmin}>
+      {postData.map((item: BlogContentsProps) => (
+        <Item
+          key={item._id}
+          item={item}
+          isAdmin={isAdmin}
+          editItem={editItem}
+        />
+      ))}
+    </S.Container>
   );
 };
 

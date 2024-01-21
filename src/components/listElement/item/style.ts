@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const Container = styled.div<{ isAdmin: boolean }>`
   padding: 26px;
-  width: 30.333%;
+  width: ${({ isAdmin }) => (isAdmin ? '100%;' : '30.333%;')}
   height: auto;
   background-color: #fffffe;
   ${({ theme }) => theme.mediaquery.media.lap} {
@@ -58,4 +58,22 @@ export const Category = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.darkgreen};
   ${({ theme }) => theme.typography.size.subtitle.s01};
   color: ${({ theme }) => theme.colors.black};
+`;
+
+export const ButtonBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+`;
+
+export const Button = styled.button`
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: ${({ theme }) => theme.colors.green};
+  ${({ theme }) => theme.typography.size.subtitle.s01};
+  color: ${({ theme }) => theme.colors.black};
+  cursor: pointer;
 `;
