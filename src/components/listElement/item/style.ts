@@ -2,14 +2,23 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div<{ isAdmin: boolean }>`
   padding: 26px;
-  width: ${({ isAdmin }) => (isAdmin ? '100%;' : '30.333%;')}
+  width: ${({ isAdmin }) => (isAdmin ? '100%;' : '')}
   height: auto;
-  background-color: #fffffe;
-  ${({ theme }) => theme.mediaquery.media.lap} {
-    width: 47%;
+  border-radius: 18px;
+  background: ${({ theme }) => theme.colors.lightgray};
+
+  &:first-child {
+    background: #a259ff;
   }
-  ${({ theme }) => theme.mediaquery.media.tabletS} {
-    width: 100%;
+  &:nth-child(2) {
+    background: #0ECF82;
+  }
+  &:nth-child(6) {
+    background: #FEEAA0;
+  }
+  &:hover {
+    transition: transform 0.4s;
+    transform: scale(1.02);
   }
 `;
 
@@ -19,9 +28,7 @@ export const TextBox = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 0.5rem;
-  padding-bottom: 24px;
   margin-bottom: 24px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.darkgreen};
 `;
 
 export const Title = styled.h2`
@@ -41,7 +48,8 @@ export const ImageBox = styled.div`
 export const Image = styled.div`
   width: 100%;
   height: 184px;
-  background-color: #636166;
+  background-color: #707070;
+  opacity: 48%;
 `;
 
 export const CategoryBox = styled.div`
@@ -55,7 +63,7 @@ export const CategoryBox = styled.div`
 export const Category = styled.div`
   padding: 4px 12px;
   border-radius: 50px;
-  border: 1px solid ${({ theme }) => theme.colors.darkgreen};
+  // border: 1px solid ${({ theme }) => theme.colors.black};
   ${({ theme }) => theme.typography.size.subtitle.s01};
   color: ${({ theme }) => theme.colors.black};
 `;

@@ -17,6 +17,7 @@
     "operator-linebreak": "off",
     "arrow-parens": "off",
     "no-underscore-dangle": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "react/require-default-props": "off"
   }
 }

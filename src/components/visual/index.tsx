@@ -1,32 +1,28 @@
 import React from 'react';
-import Inner from '@/components/inner';
 import * as S from './style';
 
 const Visual = () => {
+  const skillList = ['Next.js', 'React.js', 'HTML / CSS', 'Google Workspace'];
+
   return (
-    <>
-      <Inner>
-        <S.Container>
-          <S.ProfileBox>
-            <S.ProfileImage>profile image</S.ProfileImage>
-          </S.ProfileBox>
-          <S.TextBox>
-            <S.Title>Hello!</S.Title>
-            <S.Desc>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              assumenda quaerat consequuntur quisquam.
-              <br />
-              Cupiditate cum temporibus dolor quasi esse tempora odio magnam?
-              Nulla, cupiditate sunt!
-              <br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              assumenda quaerat consequuntur quisquam.
-            </S.Desc>
-          </S.TextBox>
-        </S.Container>
-      </Inner>
+    <S.Container>
+      <S.TextBox>
+        <S.Title>Hwajeoung Lee</S.Title>
+        <S.Desc>Frontend Developer</S.Desc>
+      </S.TextBox>
       <S.Border />
-    </>
+      <S.ContactBox>
+        <S.Desc>Kailey.lee224@gmail.com</S.Desc>
+        <S.Desc>Linkedin</S.Desc>
+        <S.Desc>Blog</S.Desc>
+        <S.Desc>Github</S.Desc>
+      </S.ContactBox>
+      <S.SkillBox>
+        {skillList.map((category: string) => (
+          <S.Skill key={category}>{category}</S.Skill>
+        ))}
+      </S.SkillBox>
+    </S.Container>
   );
 };
 

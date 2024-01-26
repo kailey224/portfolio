@@ -20,7 +20,7 @@ const global = css`
   }
 
   body {
-    background-color: #161618;
+    background-color: #0d0d0d;
   }
 
   html,
