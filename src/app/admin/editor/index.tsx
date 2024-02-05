@@ -24,32 +24,31 @@ const Editor = ({ editItem }: EditorProps) => {
   const colorInput = useInput();
 
   const onChangeInput = (
-    e: React.ChangeEvent<HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     fieldName: string
   ) => {
-    if (editItem) {
+    if (editItem?.selecteItem) {
       if (fieldName === 'title') {
-        editItem.title = e.currentTarget.value;
+        editItem.selecteItem.title = e.currentTarget.value;
       }
       if (fieldName === 'desc') {
-        editItem.desc = e.currentTarget.value;
+        editItem.selecteItem.desc = e.currentTarget.value;
       }
       if (fieldName === 'img') {
-        editItem.img = e.currentTarget.value;
+        editItem.selecteItem.img = e.currentTarget.value;
       }
       if (fieldName === 'category') {
         const categoryString = e.target.value;
         const categoryArray = categoryString.split(',');
-        editItem.category = categoryArray;
+        editItem.selecteItem.category = categoryArray;
       }
       if (fieldName === 'height') {
-        editItem.height = e.currentTarget.value;
+        editItem.selecteItem.height = e.currentTarget.value;
       }
       if (fieldName === 'color') {
-        editItem.color = e.currentTarget.value;
+        editItem.selecteItem.color = e.currentTarget.value;
       }
     }
-    console.log(editItem);
   };
 
   const reset = () => {
@@ -87,13 +86,13 @@ const Editor = ({ editItem }: EditorProps) => {
     e.preventDefault();
 
     const editData = {
-      id: editItem._id,
-      title: editItem.title,
-      desc: editItem.desc,
-      img: editItem.img,
-      category: editItem.category,
-      height: editItem.height,
-      color: editItem.color,
+      id: editItem?.selecteItem?._id,
+      title: editItem?.selecteItem?.title,
+      desc: editItem?.selecteItem?.desc,
+      img: editItem?.selecteItem?.img,
+      category: editItem?.selecteItem?.category,
+      height: editItem?.selecteItem?.height,
+      color: editItem?.selecteItem?.color,
     };
 
     const updateData = cache(async () => {
@@ -114,7 +113,7 @@ const Editor = ({ editItem }: EditorProps) => {
       <Input>
         <S.LabelBox htmlFor="title">Title</S.LabelBox>
         <S.InputBox
-          value={editItem?.title || titleInput.inputValue}
+          value={editItem?.selecteItem?.title || titleInput.inputValue}
           onChange={e => {
             onChangeInput(e, 'title');
             titleInput.onChangeInput(e);
@@ -127,7 +126,7 @@ const Editor = ({ editItem }: EditorProps) => {
       <Input>
         <S.LabelBox htmlFor="desc">Description</S.LabelBox>
         <S.TextAreaBox
-          value={editItem?.desc || descInput.inputValue}
+          value={editItem?.selecteItem?.desc || descInput.inputValue}
           onChange={e => {
             onChangeInput(e, 'desc');
             descInput.onChangeInput(e);
@@ -141,7 +140,7 @@ const Editor = ({ editItem }: EditorProps) => {
       <Input>
         <S.LabelBox htmlFor="img">Image URL</S.LabelBox>
         <S.InputBox
-          value={editItem?.img || imgInput.inputValue}
+          value={editItem?.selecteItem?.img || imgInput.inputValue}
           onChange={e => {
             onChangeInput(e, 'img');
             imgInput.onChangeInput(e);
@@ -154,7 +153,9 @@ const Editor = ({ editItem }: EditorProps) => {
       <Input>
         <S.LabelBox htmlFor="category">Category</S.LabelBox>
         <S.InputBox
-          value={editItem?.category || categoryInput.inputArrayValue}
+          value={
+            editItem?.selecteItem?.category || categoryInput.inputArrayValue
+          }
           onChange={e => {
             onChangeInput(e, 'category');
             categoryInput.onChangeInputArray(e);
@@ -167,7 +168,7 @@ const Editor = ({ editItem }: EditorProps) => {
       <Input>
         <S.LabelBox htmlFor="height">Height</S.LabelBox>
         <S.InputBox
-          value={editItem?.height || heightInput.inputValue}
+          value={editItem?.selecteItem?.height || heightInput.inputValue}
           onChange={e => {
             onChangeInput(e, 'height');
             heightInput.onChangeInput(e);
@@ -180,7 +181,7 @@ const Editor = ({ editItem }: EditorProps) => {
       <Input>
         <S.LabelBox htmlFor="color">Color</S.LabelBox>
         <S.InputBox
-          value={editItem?.color || colorInput.inputValue}
+          value={editItem?.selecteItem?.color || colorInput.inputValue}
           onChange={e => {
             onChangeInput(e, 'color');
             colorInput.onChangeInput(e);

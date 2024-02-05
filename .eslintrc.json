@@ -21,6 +21,7 @@
     "react/require-default-props": "off",
     "no-confusing-arrow": "off",
     "no-alert": "off",
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+    "no-param-reassign": "off"
   }
 }

@@ -28,7 +28,7 @@ const Post = ({ params: { id } }: PostProps) => {
         <S.Title>{postData?.title}</S.Title>
         <S.Desc>{postData?.desc}</S.Desc>
         <S.CategoryBox>
-          {postData?.category.map((category: string) => (
+          {postData?.category?.map((category: string) => (
             <S.Category key={category}>{category}</S.Category>
           ))}
         </S.CategoryBox>

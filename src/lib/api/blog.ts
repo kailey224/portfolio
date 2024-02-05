@@ -22,6 +22,8 @@ export const updateBlogContent = async (
   return axios.put(BLOG_CONTENTS, data);
 };
 
-export const deleteBlogContent = async (id: string): Promise<AxiosResponse> => {
+export const deleteBlogContent = async (
+  id: string | undefined
+): Promise<AxiosResponse> => {
   return axios.delete(deletePostData(id));
 };

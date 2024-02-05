@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div<{ isAdmin: boolean }>`
+export const Container = styled.div<{ isAdmin: boolean | undefined }>`
   display: grid;
   grid-auto-rows: 1px;
   grid-template-columns: repeat(3, minmax(0px, 1fr));

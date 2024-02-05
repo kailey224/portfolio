@@ -1,10 +1,11 @@
 export interface BlogContentsProps {
   _id?: string;
-  title: string;
-  desc: string;
-  img: string;
-  category: Array<string>;
-  height: string;
-  color: string;
+  title?: string;
+  desc?: string;
+  img?: string;
+  category?: Array<string>;
+  height?: string;
+  color?: string;
 }
-export interface Example {}
+
+export interface EditContentsProps {}

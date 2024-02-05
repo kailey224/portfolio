@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div<{ height: string }>`
+export const Container = styled.div<{ height: string | undefined }>`
   grid-row-end: ${({ height }) => `span ${height}`};
 `;
 
-export const Card = styled.div<{ color: string }>`
+export const Card = styled.div<{ color: string | undefined }>`
   position: relative;
   padding: 26px;
   width: auto;

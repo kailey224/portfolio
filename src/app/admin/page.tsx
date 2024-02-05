@@ -22,7 +22,7 @@ const Admin = () => {
 
   return (
     <Wrapper>
-      <Editor editItem={editItem.selecteItem} />
+      <Editor editItem={editItem} />
       <Preview postData={postData} editItem={editItem} />
     </Wrapper>
   );

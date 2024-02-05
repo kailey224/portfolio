@@ -14,7 +14,7 @@ interface ItemElementProps {
 }
 
 const Item = ({ item, isAdmin, editItem }: ItemElementProps) => {
-  const handleDelete = async (id: string) => {
+  const handleDelete = async (id: string | undefined) => {
     await deleteBlogContent(id);
     alert('delete success');
   };
@@ -31,14 +31,14 @@ const Item = ({ item, isAdmin, editItem }: ItemElementProps) => {
             <S.Image />
           </S.ImageBox>
           <S.CategoryBox>
-            {item.category.map((category: string) => (
+            {item?.category?.map((category: string) => (
               <S.Category key={category}>{category}</S.Category>
             ))}
           </S.CategoryBox>
         </Link>
         {isAdmin && (
           <S.ButtonBox>
-            <S.Button onClick={() => editItem.onClickSelecteItem(item)}>
+            <S.Button onClick={() => editItem?.onClickSelecteItem(item)}>
               Edit
             </S.Button>
             <S.Button onClick={() => handleDelete(item._id)}>Delete</S.Button>
