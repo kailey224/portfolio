@@ -18,8 +18,6 @@ const Main = () => {
     apiTest();
   }, []);
 
-  console.log(postData);
-
   return (
     <Wrapper>
       <Visual />
