@@ -18,6 +18,8 @@
     "arrow-parens": "off",
     "no-underscore-dangle": "off",
     "comma-dangle": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "no-confusing-arrow": "off",
+    "no-alert": "off"
   }
 }

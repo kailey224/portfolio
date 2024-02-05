@@ -20,6 +20,8 @@ const Editor = ({ editItem }: EditorProps) => {
   const descInput = useInput();
   const imgInput = useInput();
   const categoryInput = useInputArray();
+  const heightInput = useInput();
+  const colorInput = useInput();
 
   const onChangeInput = (
     e: React.ChangeEvent<HTMLTextAreaElement>,
@@ -32,7 +34,6 @@ const Editor = ({ editItem }: EditorProps) => {
       if (fieldName === 'desc') {
         editItem.desc = e.currentTarget.value;
       }
-
       if (fieldName === 'img') {
         editItem.img = e.currentTarget.value;
       }
@@ -40,6 +41,12 @@ const Editor = ({ editItem }: EditorProps) => {
         const categoryString = e.target.value;
         const categoryArray = categoryString.split(',');
         editItem.category = categoryArray;
+      }
+      if (fieldName === 'height') {
+        editItem.height = e.currentTarget.value;
+      }
+      if (fieldName === 'color') {
+        editItem.color = e.currentTarget.value;
       }
     }
     console.log(editItem);
@@ -50,6 +57,8 @@ const Editor = ({ editItem }: EditorProps) => {
     descInput.reset();
     imgInput.reset();
     categoryInput.reset();
+    heightInput.reset();
+    colorInput.reset();
   };
 
   const onSubmit = (e: ChangeEvent<HTMLFormElement>) => {
@@ -60,6 +69,8 @@ const Editor = ({ editItem }: EditorProps) => {
       desc: descInput.inputValue,
       img: imgInput.inputValue,
       category: categoryInput.inputArrayValue,
+      height: heightInput.inputValue,
+      color: colorInput.inputValue,
     };
 
     const postData = cache(async () => {
@@ -78,8 +89,11 @@ const Editor = ({ editItem }: EditorProps) => {
     const editData = {
       id: editItem._id,
       title: editItem.title,
+      desc: editItem.desc,
       img: editItem.img,
       category: editItem.category,
+      height: editItem.height,
+      color: editItem.color,
     };
 
     const updateData = cache(async () => {
@@ -148,6 +162,32 @@ const Editor = ({ editItem }: EditorProps) => {
           type="text"
           name="category"
           placeholder="Category"
+        />
+      </Input>
+      <Input>
+        <S.LabelBox htmlFor="height">Height</S.LabelBox>
+        <S.InputBox
+          value={editItem?.height || heightInput.inputValue}
+          onChange={e => {
+            onChangeInput(e, 'height');
+            heightInput.onChangeInput(e);
+          }}
+          type="text"
+          name="height"
+          placeholder="Height"
+        />
+      </Input>
+      <Input>
+        <S.LabelBox htmlFor="color">Color</S.LabelBox>
+        <S.InputBox
+          value={editItem?.color || colorInput.inputValue}
+          onChange={e => {
+            onChangeInput(e, 'color');
+            colorInput.onChangeInput(e);
+          }}
+          type="text"
+          name="color"
+          placeholder="Color Code"
         />
       </Input>
       <S.Button type="submit">Submit</S.Button>

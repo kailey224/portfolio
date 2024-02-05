@@ -1,23 +1,10 @@
 import styled from '@emotion/styled';
 
-// export const Container = styled.div<{ isAdmin: boolean }>`
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-between;
-//   align-items: center;
-//   gap: 2rem;
-//   ${({ isAdmin }) =>
-//     isAdmin
-//       ? 'width: 50%;'
-//       : `${({ theme }) => theme.mediaquery.media.pc} {
-//     width: 90%;
-//   }`}
-// `;
-
 export const Container = styled.div<{ isAdmin: boolean }>`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-auto-rows: 1px;
+  grid-template-columns: repeat(3, minmax(0px, 1fr));
+  column-gap: 1rem;
   ${({ theme }) => theme.mediaquery.media.lap} {
     grid-template-columns: repeat(2, 1fr);
   }

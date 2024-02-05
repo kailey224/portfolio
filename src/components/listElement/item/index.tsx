@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { BlogContentsProps } from '@/lib/api/dto';
+import { deleteBlogContent } from '@/lib/api/blog';
 import * as S from './style';
 
 interface ItemElementProps {
@@ -13,9 +14,14 @@ interface ItemElementProps {
 }
 
 const Item = ({ item, isAdmin, editItem }: ItemElementProps) => {
+  const handleDelete = async (id: string) => {
+    await deleteBlogContent(id);
+    alert('delete success');
+  };
+
   return (
-    <>
-      <S.Container isAdmin={isAdmin}>
+    <S.Container height={item.height}>
+      <S.Card color={item.color}>
         <Link href={`/post/${item._id}`}>
           <S.TextBox>
             <S.Title>{item.title}</S.Title>
@@ -30,16 +36,16 @@ const Item = ({ item, isAdmin, editItem }: ItemElementProps) => {
             ))}
           </S.CategoryBox>
         </Link>
-      </S.Container>
-      {isAdmin && (
-        <S.ButtonBox>
-          <S.Button onClick={() => editItem.onClickSelecteItem(item)}>
-            Edit
-          </S.Button>
-          <S.Button>Delete</S.Button>
-        </S.ButtonBox>
-      )}
-    </>
+        {isAdmin && (
+          <S.ButtonBox>
+            <S.Button onClick={() => editItem.onClickSelecteItem(item)}>
+              Edit
+            </S.Button>
+            <S.Button onClick={() => handleDelete(item._id)}>Delete</S.Button>
+          </S.ButtonBox>
+        )}
+      </S.Card>
+    </S.Container>
   );
 };
 

@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { BLOG_CONTENTS, getPostData } from '@/lib/api/url';
+import { BLOG_CONTENTS, getPostData, deletePostData } from '@/lib/api/url';
 import { BlogContentsProps } from './dto';
 
 export const getBlogContents = async (): Promise<AxiosResponse> => {
@@ -20,4 +20,8 @@ export const updateBlogContent = async (
   data: BlogContentsProps
 ): Promise<AxiosResponse> => {
   return axios.put(BLOG_CONTENTS, data);
+};
+
+export const deleteBlogContent = async (id: string): Promise<AxiosResponse> => {
+  return axios.delete(deletePostData(id));
 };

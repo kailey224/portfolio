@@ -4,5 +4,7 @@ export interface BlogContentsProps {
   desc: string;
   img: string;
   category: Array<string>;
+  height: string;
+  color: string;
 }
 export interface Example {}

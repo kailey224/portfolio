@@ -4,7 +4,9 @@ export const FormBox = styled.form`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  width: 50%;
+  min-width: 560px;
+  width: 100%;
+  height: auto;
 `;
 
 export const Title = styled.h2`

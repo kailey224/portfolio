@@ -4,7 +4,6 @@ import blogSchema from '@/lib/db/schema/blog';
 
 export const GET = async (
   request: NextRequest,
-  // eslint-disable-next-line comma-dangle
   { params }: { params: { id: string } }
 ) => {
   const { id } = params;
@@ -18,4 +17,17 @@ export const GET = async (
   }
 };
 
-export const POST = async () => {};
+export const DELETE = async (
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) => {
+  const { id } = params;
+
+  try {
+    await connect();
+    await blogSchema.findByIdAndDelete(id);
+    return new NextResponse('delete success', { status: 200 });
+  } catch (error) {
+    return new NextResponse('server error', { status: 500 });
+  }
+};

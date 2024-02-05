@@ -41,6 +41,8 @@ export const PUT = async (request: NextRequest) => {
         desc: data.desc,
         img: data.img,
         category: data.category,
+        height: data.height,
+        color: data.color,
       }
     );
 

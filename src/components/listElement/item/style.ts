@@ -1,25 +1,18 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div<{ isAdmin: boolean }>`
+export const Container = styled.div<{ height: string }>`
+  grid-row-end: ${({ height }) => `span ${height}`};
+`;
+
+export const Card = styled.div<{ color: string }>`
+  position: relative;
   padding: 26px;
-  width: ${({ isAdmin }) => (isAdmin ? '100%;' : '')}
+  width: auto;
   height: auto;
   border-radius: 18px;
   background: ${({ theme }) => theme.colors.lightgray};
-
-  &:first-child {
-    background: #a259ff;
-  }
-  &:nth-child(2) {
-    background: #0ECF82;
-  }
-  &:nth-child(6) {
-    background: #FEEAA0;
-  }
-  &:hover {
-    transition: transform 0.4s;
-    transform: scale(1.02);
-  }
+  background: ${({ color, theme }) =>
+    color ? `${color}` : theme.colors.lightgray};
 `;
 
 export const TextBox = styled.div`
@@ -69,16 +62,19 @@ export const Category = styled.div`
 `;
 
 export const ButtonBox = styled.div`
+  position: absolute;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
-  width: 100%;
+  gap: 0.5rem;
+  top: 6%;
+  right: 6%;
+  z-index: 1;
 `;
 
 export const Button = styled.button`
-  width: 100px;
-  height: 40px;
+  width: 4em;
+  height: 1.5rem;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.green};
   ${({ theme }) => theme.typography.size.subtitle.s01};

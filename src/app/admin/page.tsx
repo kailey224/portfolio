@@ -5,10 +5,8 @@ import { getBlogContents } from '@/lib/api/blog';
 import { BlogContentsProps } from '@/lib/api/dto';
 import useSelecteItem from '@/lib/hooks/input/useSelectItem';
 import Wrapper from '@/components/wrapper';
-import Inner from '@/components/inner';
 import Editor from './editor';
 import Preview from './preview';
-import * as S from './style';
 
 const Admin = () => {
   const [postData, setPostData] = useState<BlogContentsProps[]>([]);
@@ -24,12 +22,8 @@ const Admin = () => {
 
   return (
     <Wrapper>
-      <Inner>
-        <S.Box>
-          <Editor editItem={editItem.selecteItem} />
-          <Preview postData={postData} editItem={editItem} />
-        </S.Box>
-      </Inner>
+      <Editor editItem={editItem.selecteItem} />
+      <Preview postData={postData} editItem={editItem} />
     </Wrapper>
   );
 };
