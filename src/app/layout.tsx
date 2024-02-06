@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import EmotionProvider from '@/lib/provider/emotion';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <EmotionProvider>{children}</EmotionProvider>
+        <Analytics />
       </body>
     </html>
   );
