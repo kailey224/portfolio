@@ -14,7 +14,10 @@ const Visual = () => {
       <S.Border />
       <S.ContactBox>
         <S.Desc>Kailey.lee224@gmail.com</S.Desc>
-        <Link href="https://www.linkedin.com/in/kailey224/">
+        <Link
+          className="Linkedin"
+          href="https://www.linkedin.com/in/kailey224/"
+        >
           <S.Desc>Linkedin</S.Desc>
         </Link>
         <Link href="https://velog.io/@kailey/">
