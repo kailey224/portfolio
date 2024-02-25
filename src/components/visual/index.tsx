@@ -1,9 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
+import { sendGAEvent } from '@next/third-parties/google';
 import * as S from './style';
 
 const Visual = () => {
   const skillList = ['Next.js', 'React.js', 'HTML / CSS', 'Google Workspace'];
+
+  const onClickGithub = () => {
+    sendGAEvent({ event: 'click_github_btn', value: 'xyz' });
+  };
 
   return (
     <S.Container>
@@ -23,7 +28,7 @@ const Visual = () => {
         <Link href="https://velog.io/@kailey/">
           <S.Desc>Blog</S.Desc>
         </Link>
-        <Link href="https://github.com/kailey224">
+        <Link href="https://github.com/kailey224" onClick={onClickGithub}>
           <S.Desc>Github</S.Desc>
         </Link>
       </S.ContactBox>
