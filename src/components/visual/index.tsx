@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { sendGAEvent } from '@next/third-parties/google';
+import { event } from '@/lib/gtag';
 import * as S from './style';
 
 const Visual = () => {
@@ -8,6 +9,11 @@ const Visual = () => {
 
   const onClickGithub = () => {
     sendGAEvent({ event: 'click_github_btn', value: 'xyz' });
+    event({
+      action: 'listElement 클릭',
+      category: '카케고리 이름',
+      label: '라벨 이름',
+    });
   };
 
   return (
