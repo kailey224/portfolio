@@ -6,6 +6,7 @@ import { BlogContentsProps } from '@/lib/api/dto';
 import Visual from '@/components/visual';
 import ListElement from '@/components/listElement';
 import Wrapper from '@/components/wrapper';
+import GaApi from '@/lib/ga4api';
 
 const Main = () => {
   const [postData, setPostData] = useState<BlogContentsProps[]>([]);
@@ -17,6 +18,8 @@ const Main = () => {
     });
     apiTest();
   }, []);
+
+  GaApi();
 
   return (
     <Wrapper>
